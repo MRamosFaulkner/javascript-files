@@ -1,133 +1,90 @@
 
 
-let hands = ['rock', 'paper', 'scissors'];
-
-let getHand = () => {
-    return parseInt(Math.random()*10)%3
+let hands = ["rock", "paper", "scissors"];
+function getHand() {
+  return hands[parseInt(Math.random() * 10) % 3];
 }
-
 let player1 = {
-    name: 'Todd',
-    getHand: getHand(),
-    wins: 0,
+  name: "Player 1",
+  getHand: getHand,
 };
-
 let player2 = {
-    name: 'Mary',
-    getHand: getHand(),
-    wins: 0,
+  name: "Player 2",
+  getHand: getHand,
 };
 let player3 = {
-    name: 'Jimmy',
-    getHand: getHand(),
-    wins: 0,
+  name: "Player 3",
+  getHand: getHand,
 };
-
 let player4 = {
-    name: 'Cindy',
-    getHand: getHand(),
-    wins: 0,
+  name: "Player 4",
+  getHand: getHand,
 };
+function playRound(player1, player2) {
+  let player1Hand = player1.getHand();
+  let player2Hand = player2.getHand();
 
-let playRound = (p1, p2) => {
-    
-    p1.getHand = getHand();
-    let p1Move = p1.getHand;
+  console.log(player1.name + " hand = " + player1Hand);
+  console.log(player2.name + " hand = " + player2Hand);
 
-    console.log(p1.name = 'has: ' + hands[p1Move]);
-
-    p2.getHand = getHand();
-    let p2Move = p2.getHand;
-
-    console.log(p2.name = 'has' + hands[p2Move]);
-
-    switch(p1Move) {
-        case 0:
-
-            if (p2Move == 0) {
-
-                console.log("It's a tie!");
-                return null;
-            }
-            else if (p2Move == 1) {
-                console.log(p2.name + "is the winner!");
-                p2.wins++;
-                return p2;
-            }
-            else if (p2Move == 2) {
-                console.log(p1.name + "is the winner!");
-                p1.wins++;
-                return p1;;
-            }    
-        case 1:
-
-            if (p2Move == 0) {
-                console.log(p1.name + "is the winner!");
-                p1.wins++;
-                return p1;
-            }
-            else if (p2Move == 1) {
-                console.log("It's a tie!");
-                return null;
-            }
-            else if (p2Move == 2) {
-                console.log(p2.name + "is the winner!");
-                p2.wins++;
-                return p2;
-            }    
-        case 2:
-
-            if (p2Move == 0) {
-                console.log(p2.name + "is the winner!");
-                p2.wins++;
-                return p2;
-            }
-            else if (p2Move == 1) {
-                console.log(p1.name + "is the winner!");
-                return p1;
-            }
-            else if (p2Move == 2) {
-                console.log("It's a tie");
-                p2.wins++;
-                return null;
-            }
-    }
+  if (player1Hand == player2Hand) {
+    console.log("it's a tie");
+    return null;
+  } else if (
+    (player1Hand === "rock" && player2Hand === "scissors") ||
+    (player1Hand === "scissors" && player2Hand === "paper") ||
+    (player1Hand === "paper" && player2Hand === "rock")
+  ) {
+    console.log(player1.name + " Wins");
+    return player1;
+  } else if (
+    (player2Hand === "rock" && player1Hand === "scissors") ||
+    (player2Hand === "scissors" && player1Hand === "paper") ||
+    (player2Hand === "paper" && player1Hand === "rock")
+  ) {
+    console.log(player2.name + " Wins");
+    return player2;
+  }
 }
-let playGame = (p1, p2, playUntil) => {
-    //untill one of the players wins enough games keep playing
-    while(p1.numOfWins < playUntil && p2.numOfWins < playUntil) {
-        console.log();
-        playRound(p1, p2);
+function playGame(player1, player2, playUntil) {
+  let p1Win = 0;
+  let p2Win = 0;
+  while (p1Win < playUntil && p2Win < playUntil) {
+    console.log(
+      player1.name +
+        " Wins: " +
+        p1Win +
+        " | " +
+        player2.name +
+        " Wins: " +
+        p2Win
+    );
+    let roundWinner = playRound(player1, player2);
+    if (roundWinner === null) {
+    } else if (roundWinner.name === player1.name) {
+      p1Win += 1;
+    } else if (roundWinner.name === player2.name) {
+      p2Win += 1;
     }
-
-    //return the player that won
-    if(p1.numOfWins == playUntil) {
-        console.log("\n" + p1.name + " wins the Game!!! Score: " + p1.numOfWins + " - " + p2.numOfWins);
-        return p1;
-    } else if(p2.numOfWins == playUntil) {
-        console.log("\n" + p2.name + " wins the Game!!! Score: " + p1.numOfWins + " - " + p2.numOfWins);
-        return p2;
-    }
+  }
+  if (p1Win == playUntil) {
+    return player1;
+  } else if (p2Win == playUntil) {
+    return player2;
+  }
 }
-
-let playTournament = (p1, p2, p3, p4, playUntil) => {
-    //game 1 of the tournament
-    console.log("\nGame 1: " + p1.name + " vs. " + p2.name + " ************************************");
-    let finalist1 = playGame(p1, p2, playUntil);
-
-    //game 2 of the tournament
-    console.log("\nGame 2: " + p3.name + " vs. " + p4.name + " ************************************");
-    let finalist2 = playGame(p3, p4, playUntil);
-
-    //reset each players number of wins
-    finalist1.numOfWins = 0;
-    finalist2.numOfWins = 0;
-
-    //championship game
-    console.log("\nWorld championship: " + finalist1.name + " vs. " + finalist2.name + "************************************");
-    let champion = playGame(finalist1, finalist2, playUntil);
-    console.log("\n" + champion.name + " is the world champion!!!!!!!!");
+function playTournament(player1, player2, player3, player4, playUntil) {
+  let group1Winner = playGame(player1, player2, playUntil);
+  let group2Winner = playGame(player3, player4, playUntil);
+  let tournamentWinner = playGame(group1Winner, group2Winner, playUntil);
+  return tournamentWinner;
 }
-
-//playTournament(player1, player2, player3, player4, 5);
-playGame(player1, player2, 5);
+// playRound(player1,player2);
+console.log("Winner is " + playGame(player1, player2, 3).name);
+// playGame (player1, player2, 5);
+console.log();
+console.log();
+console.log(
+  playTournament(player1, player2, player3, player4, 3).name +
+    " is the world champion!"
+);
