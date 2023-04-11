@@ -41,4 +41,3 @@ function playRound(a, b) {
 }
 
 playRound(player1.hand, player2.hand);
-

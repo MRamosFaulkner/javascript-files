@@ -5,19 +5,19 @@ function getHand() {
   return hands[parseInt(Math.random() * 10) % 3];
 }
 let player1 = {
-  name: "Player 1",
+  name: "Todd",
   getHand: getHand,
 };
 let player2 = {
-  name: "Player 2",
+  name: "Mary",
   getHand: getHand,
 };
 let player3 = {
-  name: "Player 3",
+  name: "Jim",
   getHand: getHand,
 };
 let player4 = {
-  name: "Player 4",
+  name: "Anna",
   getHand: getHand,
 };
 function playRound(player1, player2) {

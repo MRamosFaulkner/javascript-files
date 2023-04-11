@@ -137,3 +137,24 @@
 // };
 
 // displayWeather(data);
+
+//arrow functions
+// let addNum = (x,y) => {
+//     return x+y;
+    
+// };
+
+// console.log(addNum(1,2));
+
+// let n = 0;
+// function addOne() {
+//     n=+1;
+//     return n
+// }
+// addOne = function() {
+//     n = n=1;
+//     return n
+// }
+// let addOne = () => n++
+
+//scope -- how you separate code and how that code wo
