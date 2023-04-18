@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header>
+    <h1>Rock, Paper, Scissors Game</h1>
+</header>
+<body>
+    <div id="setup">
+        <input id="playerName" type="text" placeholder="Enter player 1 name">
+        <div>
+            <label># of rounds per game:</label>
+        <input type="number" value="3" id="numOfRounds" min="1" max="10">
+        </div>
+    </div>
+    <div id="choose">
+        <div id="pickHand">
+            <div id="rock"><img src="images/rock.png" width="150"></div>
+            <div id="paper"><img src="images/paper.png" width="150"></div>
+            <div id="scissors"><img src="images/scissors.png" width="150"></div>
+        </div>
+        <div id="showRounds">
+            <div id="roundHistory">
+                <h2>Round History</h2>
+            </div>
+            <div id="roundsOverflow">
+                <ul id="rounds">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="history">
+        <div id="historyTitle">
+            <h2>Game History</h2>
+        </div>
+        <div id="matchesOverflow">
+            <ul id="matches">
+
+            </ul>
+        </div>
+    </div>
+    <script src="rpsgame.js"></script>
+</body>
+</html>
