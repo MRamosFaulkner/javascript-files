@@ -21,4 +21,3 @@ for(let i = 0; i <newItems.length; i++) {
 shoppingCartList[1].className = "important";
 
 console.log(shoppingCartList);
-Foot
