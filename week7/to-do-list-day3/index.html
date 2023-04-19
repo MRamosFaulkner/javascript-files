@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div id="notePad">
+        <div id="heading">
+            <h1>To Do List</h1>
+        </div>
+        <div id="content">
+            <h2>Add tasks to list...</h2>
+            <div id="list">
+                <form id="addItem">
+                    <input id="inputTask" name="inputTask" type="text">
+                <!-- <input type="image" width="20" src="addImg.png" onclick="addTask()"> -->
+                    <button onclick="addTask()">Submit</button>
+                </form>
+                <ul>
+                    <li>Grocery Shopping</li>
+                    <li>Change Oil On Car</li>
+                    <li>Do Laundry</li>
+                </ul>
+                <p style="font-style: italic;"><b>Click on task once completed.</b></p>
+            </div>
+        </div>    
+    </div>
+
+    <script src="todolist.js"></script>
+</body>
+</html>
