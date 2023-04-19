@@ -1,33 +1,45 @@
 
+const addItem = document.querySelector('#addItem');
+const displayCartButton = document.querySelector('#displayCart');
+
 function initializeCart() {
     if (localStorage.getItem('cart')) {
-        cart = JSON.parse(localStorage.getItem('cart'));
-    } else {
-        cart = [];
-    }
-    renderCart();
-};
+        localStorage.setItem('cart', JSON.stringify([]));
+    } 
+}
 function addItem(item) {
-    cart.push(item);
+    const cart = JSON.parse(localStorage.getItem('cart'));
+        cart.push(item);
     localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
 };
 
-function removeItem(item) {
-    cart.splice(cart.indexOf(item), 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
+function removeItem(id) {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const cartUpdate = cart.filter(item => item.id !== id);
+    
+    localStorage.setItem('cart', JSON.stringify(cartUpdate));
+    console.log(cart);
 };
 function displayCart() {
-    let cartList = document.getElementById('cart-list');
-    cartList.innerHTML = '';
-    for (let i = 0; i < cart.length; i++) {
-        let cartItem = document.createElement('li');
-        cartItem.textContent = `${cart[i].name} - ${cart[i].price}`;
-        cartList.appendChild(cartItem);
-    }
-};
-const el = document.getElementById('cart');
-// el.addEventListener('click', (function(event)){
-//     alert('clicked');
-// };
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    console.log(cart);
+}
+addItemForm.addEventListener('submit', function(event)  {
+    event.preventDefault();
+
+    const itemName = document.querySelector('#itemName').value;
+    const itemPrice = document.querySelector('#itemPrice').value;
+
+    const item = {
+        id: Date.now(),
+        name: itemName,
+        price: itemPrice
+    };
+
+    addItem(item);
+});
+
+displayCartButton.addEventListener('click', function() {
+    displayCart();
+});
+initializeCart();
