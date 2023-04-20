@@ -12,8 +12,8 @@
 //         tasks.forEach(tasks => console.log(tasks));
 //     }
 
-const list = document.querySelector('ul');
-const listItems = list.children;
+const task = document.querySelector('ul');
+const taskItems = list.children;
 const inputBox = document.getElementById('inputTask');
 const itemForm = document.getElementById('addItem');
 
@@ -21,7 +21,7 @@ function addTask() {
     if(inputBox.value != "") {
         let newTask = document.createElement('li');
         newTask.innerText = inputBox.value;
-        list.appendChild(newTask);
+        task.appendChild(newTask);
         inputBox.value = "";
     } else {
         window.alert("Please enter task into the text box.");
@@ -29,11 +29,11 @@ function addTask() {
     }
 }
 
-list.addEventListener('click', function(e){
-    var listItem = e.target;
-    listItem.style.cssText += "text-decoration: line-through;";
+task.addEventListener('click', function(e){
+    var taskItem = e.target;
+    taskItem.style.cssText += "text-decoration: line-through;";
     setTimeout(function(){
-        listItem.remove();
+        taskItem.remove();
     }, 1000);
 });
 

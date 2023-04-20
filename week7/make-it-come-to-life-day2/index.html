@@ -1,51 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Rock, Paper, Scissors</title>
 </head>
-<header>
-    <h1>Rock, Paper, Scissors Game</h1>
-    <img src="images/rock-paper-scissors.png" width="300">
-</header>
 <body>
-    <div id="setup">
-        <input id="playerName" type="text" placeholder="Enter player 1 name">
-        <div>
-            <label># of rounds per game:</label>
-        <input type="number" value="3" id="numOfRounds" min="1" max="10">
-        </div>
+  <h1>Rock, Paper, Scissors</h1>
+  <div id="game-container">
+    <div class="player-container">
+      <h2 id="player1-name">Player 1</h2>
+      <p>Score: <span id="player1-score">0</span></p>
     </div>
-    <div id="choose">
-        <div id="pickHand">
-            <div id="rock"><img src="images/rock.png" width="150"></div>
-            <div id="paper"><img src="images/paper.png" width="150"></div>
-            <div id="scissors"><img src="images/scissors.png" width="150"></div>
-        </div>
-        <div id="showRounds">
-            <div id="roundHistory">
-                <h2>Round History</h2>
-            </div>
-            <div id="roundsOverflow">
-                <ul id="rounds">
-
-                </ul>
-            </div>
-        </div>
+    <div class="player-container">
+      <h2 id="player2-name">Player 2</h2>
+      <p>Score: <span id="player2-score">0</span></p>
     </div>
-    <div id="history">
-        <div id="historyTitle">
-            <h2>Game History</h2>
-        </div>
-        <div id="matchesOverflow">
-            <ul id="matches">
-
-            </ul>
-        </div>
-    </div>
-    <script src="rpsgame.js"></script>
+  </div>
+  <div id="choices-container">
+    <button onclick="getHand('rock')">Rock</button>
+    <button onclick="getHand('paper')">Paper</button>
+    <button onclick="getHand('scissors')">Scissors</button>
+  </div>
+  <div id="choices-container">
+    <img src = "images/rock.png" width="110">
+    <img src = 'images/paper.png' width="105">
+    <img src = 'images/scissors.png' width="105">
+  </div>
+  <script src="rpsgame.js"></script>
 </body>
 </html>
