@@ -25,7 +25,7 @@ fetchUserById(4301)
 .then((user) => {
     console.log(user.name + "'s user ID is " + user.id);
 
-    return fetchUserById(4302);
+    return fetchUserById(4306);
 })
 .then((user) => {
     console.log(user.name + "'s user ID is " + user.id);
