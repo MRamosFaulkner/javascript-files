@@ -1,0 +1,33 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(5,5,5,.7), rgba(5,5,5,.7)), url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp8834123.jpg&f=1&nofb=1&ipt=c039d192f4c1e163cd413fa93f608f982a283d4494b31b17bb81621f6aeadc30&ipo=images');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+section {
+    text-align: center;
+}
+
+.container {
+    font-weight: bold;
+    color: white;
+    padding: 100px;
+    border-radius: 10px;
+    background: linear-gradient(rgba(100,100,100,.5), rgba(100,100,100,.5)), url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp8834123.jpg&f=1&nofb=1&ipt=c039d192f4c1e163cd413fa93f608f982a283d4494b31b17bb81621f6aeadc30&ipo=images');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40%;
+    margin: auto;
+}
